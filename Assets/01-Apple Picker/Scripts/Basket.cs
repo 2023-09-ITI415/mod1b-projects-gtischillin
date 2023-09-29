@@ -45,6 +45,9 @@ public class Basket : MonoBehaviour
 
         // Convert the score back to a string
         scoreGT.text = score.ToString();
+        if (score > HighScore.score) {
+                HighScore.score = score;
             }
+        }
     }
 }
