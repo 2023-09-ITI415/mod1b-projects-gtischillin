@@ -8,6 +8,7 @@ public class CoinCollector : MonoBehaviour
     {
         if (other.CompareTag("Coin")) // Assuming you've tagged your coins as "Coin"
         {
+            UI.COIN_COLLECTED();
             Destroy(other.gameObject); // Destroy the coin
         }
     }

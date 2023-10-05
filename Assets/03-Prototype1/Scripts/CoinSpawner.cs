@@ -11,12 +11,12 @@ public class CoinSpawner : MonoBehaviour
         SpawnCoins();
     }
 
-    void SpawnCoins()
+    public void SpawnCoins()
     {
-        for (int i = 0; i < 10; i++) // Change 10 to the desired number of coins
+        for (int i = 0; i < 10; i++) 
         {
-            float xPos = Random.Range(-16f, 16f); // x range: -16 to 16
-            float yPos = Random.Range(-8f, -1.5f); // y range: -8 to -1.5
+            float xPos = Random.Range(-16f, 16f); 
+            float yPos = Random.Range(-8f, -1.5f); 
 
             Instantiate(coinPrefab, new Vector3(xPos, yPos, 0), Quaternion.identity);
         }
