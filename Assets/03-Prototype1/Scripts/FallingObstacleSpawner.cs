@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallingObstacleSpawner : MonoBehaviour
@@ -23,9 +21,10 @@ public class FallingObstacleSpawner : MonoBehaviour
         for (int i = 0; i < numObstacles; i++)
         {
             float randomX = Random.Range(-spawnRangeX, spawnRangeX);
-            Vector3 spawnPosition = new Vector3(randomX, spawnHeightY, 5f);
+            Vector3 spawnPosition = new Vector3(randomX, spawnHeightY, 0f);
 
-            Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+            GameObject obstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+            obstacle.AddComponent<FallingObstacle>(); // Add FallingObstacle component to spawned obstacles
         }
     }
 }
