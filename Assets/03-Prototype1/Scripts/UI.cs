@@ -8,10 +8,13 @@ public class UI : MonoBehaviour
     static private UI S;
     public Text uitLevel;
     public Text uitCoins;
+    public Text uitLives; 
     public int coinsCollected;
     public int level;
     public int maxCoins = 10;
     public int totalCoinsCollected;
+    public int lives = 20; 
+    public GameObject gameOverCanvas;
 
     void Start()
     {
@@ -20,6 +23,7 @@ public class UI : MonoBehaviour
         coinsCollected = 0;
         totalCoinsCollected = 0;
         UpdateGUI();
+        gameOverCanvas.SetActive(false);
     }
 
     static public void COIN_COLLECTED()
@@ -39,6 +43,7 @@ public class UI : MonoBehaviour
     {
         uitLevel.text = "Level: " + level;
         uitCoins.text = "Coins Collected: " + totalCoinsCollected;
+        uitLives.text = "Lives: " + lives; 
     }
 
     public void RespawnCoins()
@@ -49,4 +54,24 @@ public class UI : MonoBehaviour
             coinSpawner.SpawnCoins();
         }
     }
+
+    public void DecreaseLives()
+    {
+        if (lives <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            lives--;
+        }
+        UpdateGUI();
+    }
+
+    void GameOver()
+    {
+        gameOverCanvas.SetActive(true); 
+        Time.timeScale = 0f;
+    }
+    
 }

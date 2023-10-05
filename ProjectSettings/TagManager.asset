@@ -7,6 +7,7 @@ TagManager:
   - Apple
   - Projectile
   - Coin
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - AppleTree
   - Apple
   - Basket
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Obstacle
+  - Coins
+  - Ground
   - 
   - 
   - 

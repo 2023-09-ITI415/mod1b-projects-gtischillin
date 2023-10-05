@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingObstacle : MonoBehaviour
 {
     public float fallSpeed = 5f;
+    private bool hasHitPlayer = false;
 
     void Update()
     {
@@ -18,8 +19,12 @@ public class FallingObstacle : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!hasHitPlayer && other.CompareTag("Player"))
         {
+            UI uiScript = FindObjectOfType<UI>();
+            uiScript.DecreaseLives();
+
+            hasHitPlayer = true;
             Destroy(gameObject);
         }
     }

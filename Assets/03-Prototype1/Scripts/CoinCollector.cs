@@ -6,10 +6,10 @@ public class CoinCollector : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coin")) // Assuming you've tagged your coins as "Coin"
+        if (other.CompareTag("Coin")) 
         {
             UI.COIN_COLLECTED();
-            Destroy(other.gameObject); // Destroy the coin
+            Destroy(other.gameObject);
         }
     }
 }
